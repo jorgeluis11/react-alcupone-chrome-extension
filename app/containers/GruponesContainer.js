@@ -29,7 +29,7 @@ class GruponesContainer extends Component {
   //       return response.json();
   //       })
 
-    this.props.dispatch(actions.getTodoList());
+    // this.props.dispatch(actions.getTodoList());
   }
 
   render() {

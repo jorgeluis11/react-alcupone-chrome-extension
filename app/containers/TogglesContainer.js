@@ -8,9 +8,7 @@ import actions from '../actions/actions'
 class TogglesContainer extends Component {
   constructor(props){
     super(props)
-    this.state = {
-      sitesList:['groopanda','gustazos','oferta']
-    }
+    // this.handleToggle.bind(this);
     // const list = getSearchResult("Cheese");
   }
 
@@ -25,10 +23,13 @@ class TogglesContainer extends Component {
     // this.props.dispatch(actions.searchProfesor(this.state.value));
   }
 
-  handleToogle(event){
-    event.preventDefault();
-    console.log("submitted");
+  handleToggle(id){
+    // console.log("aaa")
+    // console.log(this)
+    // this.state.list[id-1].active = !this.state.list[id-1].active;
+
   }
+  
 
   // async 
   // componentWillMount(){
@@ -36,11 +37,12 @@ class TogglesContainer extends Component {
   // }
 
   render() {
-    // console.log("list",this.state.list)
-
+    // console.log("list",this.props)
     return (
-      <div>
-        <Toggle dispatch={this.props.dispatch} list={this.state.sitesList} handleToogle={this.handleSubmit}/>
+      <div className="row">
+        {
+          this.props.list.map((site, i) => <Toggle dispatch={this.props.dispatch} site={site} id={i} />)
+        }
       </div>      
     )}
     

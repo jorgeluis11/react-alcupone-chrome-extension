@@ -7,9 +7,10 @@
     "start": "webpack-dev-server --hot --inline",
     "prod": "webpack -p"
   },
-  "author": "Tyler McGinnis <tylermcginnis33@gmail.com> (http://tylermcginnis.com)",
+  "author": "Jorge",
   "license": "ISC",
   "dependencies": {
+    "autobind-decorator": "^1.3.3",
     "axios": "^0.9.0",
     "isomorphic-fetch": "^2.2.1",
     "react": "^0.14.6",

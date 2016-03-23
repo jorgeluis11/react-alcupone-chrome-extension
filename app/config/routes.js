@@ -7,7 +7,31 @@ import configureStore from '../store/store'
 import { Provider } from 'react-redux'
 
 let initialState =  {
-	todos:[]
+
+    grouponList:[{id:1,
+            name:'groopanda',
+            active:true},
+            {id:2,
+            name:'gustazos',
+            active:false},
+            {id:3,
+            name:'oferta',
+            active:false}, 
+            {id:4,
+            name:'ofertones',
+            active:false}, 
+            {id:5,
+            name:'peroquedescuentos',
+            active:false}, 
+            {id:6,
+            name:'prgoza',
+            active:false}, 
+            {id:7,
+            name:'kokigo',
+            active:false},
+            {id:8,
+            name:'puertoricolike',
+            active:false}]
 }
 
 let store = configureStore(initialState)

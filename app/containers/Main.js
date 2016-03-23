@@ -32,14 +32,13 @@ class Main extends Component {
   }
   render() {
     return (
-       <div className="jumbotron">
-       <h1 className="center">Groupones de PR!</h1>
-        <TogglesContainer dispatch={this.props.dispatch} handleSubmit={this.handleSubmit}/>
-        <GruponesContainer dispatch={this.props.dispatch} todos={this.props.todos}/>
+       <div>
+        <TogglesContainer list={this.props.grouponList} dispatch={this.props.dispatch} handleSubmit={this.handleSubmit}/>
       </div>
     );
   }
 }
+//        <GruponesContainer dispatch={this.props.dispatch} todos={this.props.todos}/>
 
 
 // Main.contextTypes = {
