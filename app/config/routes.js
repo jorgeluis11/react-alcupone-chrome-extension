@@ -31,7 +31,8 @@ let initialState =  {
             active:false},
             {id:8,
             name:'puertoricolike',
-            active:false}]
+            active:false}],
+    list:[]
 }
 
 let store = configureStore(initialState)

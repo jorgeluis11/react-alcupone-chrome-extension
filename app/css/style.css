@@ -73,15 +73,15 @@ hr {
 }
 
 .btn-red-outline.active{
-  background-color: #FA563A !important;
-  border-color: #FA563A !important;
+  background-color: rgba(250,86,58, 0.8) !important;
+  border-color: rgba(250,86,58, 0.8) !important;
   color: #fff !important;
   opacity: 1 !important;
 }
 
 .btn-red-outline:hover{
-  background-color: #FA563A !important;
-  border-color: #FA563A !important;
+  background-color: rgba(250,86,58, 0.8) !important;
+  border-color: rgba(250,86,58, 0.8) !important;
   color: #fff !important;
   opacity: 1 !important;
 }
@@ -158,4 +158,18 @@ background-position: 0 -146px;
 
 .from-logo.puertoricolike {
     background-position: 0 -455px;
-  }
+}
+
+.groupon-col{
+  width: 50%;
+  float:left;
+}
+
+.groupon-image-cut{
+  overflow:hidden;
+  height: 150px;
+}
+
+.groupon-image{
+  width: 100%;
+}

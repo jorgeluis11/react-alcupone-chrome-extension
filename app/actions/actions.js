@@ -2,11 +2,6 @@ import fetch from 'isomorphic-fetch'
 import ReduxThunk from 'redux-thunk'
 
 let actions = {
-		// addTodo: function(text){
-		// 	return {
-		// 		type:"ADD_TODO",
-		// 		text:text
-		// 	}
 		// },
         toggleGroupon: function(id){
             return {
@@ -14,37 +9,54 @@ let actions = {
                 id
             }
         },
-		getTodoList: function() {
-    //The thunk is also passed the state as a second parameter, but it's not
-    //needed very frequently.
-        // return async function(dispatch) {
-        //     var response = await fetch(`http://gruponaso.herokuapp.com/?start=0&index=0&list=gustazos`)
-        //     .then((response) => {
-        //         return response.json();
-        //     });
-            
-        //     dispatch({
-        //             type: "GET_LIST",
-        //             result: response.results,
-        //       })
-        // }
-    },
 
- //    searchProfesor: function(start,index,list) {
- //    //The thunk is also passed the state as a second parameter, but it's not
- //    //needed very frequently.
-	//     return async function(dispatch) {
- //            const response = await fetch(`http://gruponaso.herokuapp.com/?${start}=0&${index}=0&${list.join(',')}=gustazos`)
-	//       	.then((response) => {
- //            	return response.json();
-	//         });
-	    	
-	// 		dispatch({
-	//                 type: "GET_LIST",
-	//                 result: response.results,
-	//           })
-	//     }
-	// }
+		getGrouponList: function() {
+        return async function(dispatch) {
+            var response = await fetch(`http://gruponaso.herokuapp.com/?start=0&index=0&list=gustazos`)
+            .then((response) => {
+                return response.json();
+            });
+            
+            dispatch({
+                    type: "GET_LIST",
+                    result: response.items,
+              })
+            return response
+        }
+    },
+        getToggledList: function(list) {
+        return async function(dispatch) {
+            if (list.length === 0) 
+                {
+                    dispatch({
+                    type: "GET_LIST",
+                    result: []})
+                };
+
+            var newList = list.filter((elem,i) => {
+                    return elem.active 
+                      
+                }); 
+
+            newList = newList.map((elem,i) => { 
+                    return elem.name;
+                }).join(",");
+
+            
+            const response = await fetch(`http://gruponaso.herokuapp.com/?start=0&index=0&list=${newList}`)
+            .then((response) => {
+                return response.json();
+            });
+            
+            // Promise.all([
+                
+                dispatch({
+                    type: "GET_LIST",
+                    result: response.items})
+                // ])
+            
+        }
+    }
 }
 
 

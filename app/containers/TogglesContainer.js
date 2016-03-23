@@ -8,7 +8,7 @@ import actions from '../actions/actions'
 class TogglesContainer extends Component {
   constructor(props){
     super(props)
-    // this.handleToggle.bind(this);
+    this.handleToggle.bind(this);
     // const list = getSearchResult("Cheese");
   }
 
@@ -24,10 +24,10 @@ class TogglesContainer extends Component {
   }
 
   handleToggle(id){
-    // console.log("aaa")
-    // console.log(this)
-    // this.state.list[id-1].active = !this.state.list[id-1].active;
-
+    this.props.dispatch(actions.toggleGroupon(id));
+    // console.log(this.props.list);
+    this.props.dispatch(actions.getToggledList(this.props.list))
+    this.props.dispatch(actions.loading(true));
   }
   
 
@@ -36,12 +36,14 @@ class TogglesContainer extends Component {
   //   this.props.dispatch(actions.getTodoList());
   // }
 
+
+
   render() {
     // console.log("list",this.props)
     return (
       <div className="row">
         {
-          this.props.list.map((site, i) => <Toggle dispatch={this.props.dispatch} site={site} id={i} />)
+          this.props.list.map((site, i) => <Toggle dispatch={this.props.dispatch} handleToggle={() => this.handleToggle(i)} site={site} key={i} />)
         }
       </div>      
     )}

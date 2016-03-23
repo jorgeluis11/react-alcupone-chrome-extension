@@ -24,21 +24,16 @@ class GruponesContainer extends Component {
 
   // async 
   componentWillMount(){
-  // var response = await fetch(`https://notaso.com/api/v2/professors/?format=json`)
-  //     .then((response) => {
-  //       return response.json();
-  //       })
-
-    // this.props.dispatch(actions.getTodoList());
+    this.props.dispatch(actions.getGrouponList());
   }
 
   render() {
-    // console.log("list",this.state.list)
-
     return (
-      <div>
-        <Grupon todos={this.props.todos}/>
-      </div>
+      <div className="row">
+        {
+          this.props.list.map((grupon, i) => <Grupon dispatch={this.props.dispatch} grupon={grupon} key={i} />)
+        }
+      </div>  
       
     )}
     

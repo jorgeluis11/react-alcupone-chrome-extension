@@ -34,11 +34,11 @@ class Main extends Component {
     return (
        <div>
         <TogglesContainer list={this.props.grouponList} dispatch={this.props.dispatch} handleSubmit={this.handleSubmit}/>
+        <GruponesContainer list={this.props.list} dispatch={this.props.dispatch} todos={this.props.todos}/>
       </div>
     );
   }
 }
-//        <GruponesContainer dispatch={this.props.dispatch} todos={this.props.todos}/>
 
 
 // Main.contextTypes = {

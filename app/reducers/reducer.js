@@ -7,11 +7,10 @@ function getId(state){
 export default function reducer(state, action) {
 	switch(action.type){
 		case "GET_LIST":
-			return Object.assign({}, state, ...state.todos, {
-				todos:[...action.result]
+			return Object.assign({}, state, ...state.list, {
+				list:[...action.result]
 				});
 		case "Toggle_Groupon":
-		console.log(state)
 			state.grouponList[action.id].active = !state.grouponList[action.id].active;
 			return Object.assign({}, state, ...state.grouponList, {
 				grouponList:[...state.grouponList]

@@ -22,27 +22,23 @@ import React, { Component, PropTypes } from 'react'
 class Grupon extends Component {
   constructor(props){
     super(props)
-
-    
   }
-  
-
 
   render(){
+     console.log
+    var image = "../image/noImage";
+
+    if (this.props.grupon && this.props.grupon.image) 
+      image = this.props.grupon.image;
+
     return (
-      <div className="row">
-        {
-
-          this.props.todos.map((todo) => {
-            return <div className="profe-container col-xs-6 col-md-4" key={todo.id}>
-
-              <h2>{todo.first_name}</h2>
-
-            </div>
-          })
-
-        }
-        
+      <div className="groupon-col">
+        <div className="groupon-image-cut">
+          <img className="groupon-image" src={image}></img>
+        </div>
+        {this.props.grupon.from}
+        {this.props.grupon.price}
+        {this.props.grupon.title}
       </div>
       )
   } 
