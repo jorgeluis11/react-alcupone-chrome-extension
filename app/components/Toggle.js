@@ -23,12 +23,15 @@ class Toggle extends Component{
 	}
 
 	render(){
-		const customClass = !this.props.site.active?`groupon-image from-logo ${this.props.site.name}`:`groupon-image from-logo ${this.props.site.name} `
-		const buttonClass =  !this.props.site.active?`btn btn-red-outline toggle-col ${this.props.site.name}`:`btn btn-red-outline toggle-col ${this.props.site.name} active`
+		let img = `app/img/${this.props.site.name}.png`
+		let imageClass = `img-size ${this.props.site.name}`
+		let buttonClass =  !this.props.site.active?`btn btn-red-outline toggle-col ${this.props.site.name}`:`btn btn-red-outline toggle-col ${this.props.site.name} active`
 		return (
 			<center onClick={this.props.handleToggle} className={buttonClass}>
-        		<div className={customClass}>
-        		</div>
+				<img className={imageClass} src={img}>
+
+				</img>
+        		
         	</center>
 		)
 	}

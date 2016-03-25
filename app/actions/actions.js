@@ -9,6 +9,11 @@ let actions = {
                 id
             }
         },
+        loading: function(){
+            return {
+                type:"LOADING_GROUPON",
+            }
+        },
 
 		getGrouponList: function() {
         return async function(dispatch) {

@@ -33,8 +33,8 @@ class Main extends Component {
   render() {
     return (
        <div>
-        <TogglesContainer list={this.props.grouponList} dispatch={this.props.dispatch} handleSubmit={this.handleSubmit}/>
-        <GruponesContainer list={this.props.list} dispatch={this.props.dispatch} todos={this.props.todos}/>
+        <TogglesContainer list={this.props.grouponList}  dispatch={this.props.dispatch} handleSubmit={this.handleSubmit}/>
+        <GruponesContainer list={this.props.list} loading={this.props.loading} dispatch={this.props.dispatch} todos={this.props.todos}/>
       </div>
     );
   }

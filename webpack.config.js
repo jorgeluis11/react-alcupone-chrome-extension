@@ -19,7 +19,7 @@ module.exports = {
       {test: /\.js$/, exclude: /node_modules/, loaders: ["react-hot", "babel-loader"]},
       {test: /\.css$/, loader: "style-loader!css-loader" },
       // Font Definitions
-    { test: /\.(png|otf|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }     
+    { test: /\.(png|gif|otf|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }     
 ]
   },
   plugins: [HTMLWebpackPluginConfig]

@@ -23,11 +23,14 @@ class TogglesContainer extends Component {
     // this.props.dispatch(actions.searchProfesor(this.state.value));
   }
 
-  handleToggle(id){
-    this.props.dispatch(actions.toggleGroupon(id));
-    // console.log(this.props.list);
-    this.props.dispatch(actions.getToggledList(this.props.list))
-    this.props.dispatch(actions.loading(true));
+  handleToggle(id, active){
+    if (!active) {
+      this.props.dispatch(actions.loading());
+      this.props.dispatch(actions.toggleGroupon(id));
+      this.props.dispatch(actions.getToggledList(this.props.list))
+    };
+    
+    // this.props.dispatch(actions.loading(true));
   }
   
 
@@ -42,8 +45,9 @@ class TogglesContainer extends Component {
     // console.log("list",this.props)
     return (
       <div className="row">
+
         {
-          this.props.list.map((site, i) => <Toggle dispatch={this.props.dispatch} handleToggle={() => this.handleToggle(i)} site={site} key={i} />)
+          this.props.list.map((site, i) => <Toggle dispatch={this.props.dispatch} handleToggle={() => this.handleToggle(i, site.active)} site={site} key={i} />)
         }
       </div>      
     )}

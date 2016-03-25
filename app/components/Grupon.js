@@ -25,21 +25,35 @@ class Grupon extends Component {
   }
 
   render(){
-     console.log
-    var image = "../image/noImage";
+    var {image, title,from} = this.props.grupon;
+    let img = `app/img/${from}.png`
+    let imageClass = `img-size`
 
-    if (this.props.grupon && this.props.grupon.image) 
-      image = this.props.grupon.image;
+    if (!this.props.grupon.image) 
+      image = "app/img/no-image.gif";
+    if(title.length > 200){
+      title = title.substr(0,200)+"...";
+    }
+
+    // let fromImageClass = from?`groupon-image from-logo ${from}`:``
 
     return (
-      <div className="groupon-col">
+      <a href={this.props.grupon.link} target="_blank">
+      <div className="groupon-col margin-top-sm">
         <div className="groupon-image-cut">
           <img className="groupon-image" src={image}></img>
         </div>
-        {this.props.grupon.from}
-        {this.props.grupon.price}
-        {this.props.grupon.title}
+        <div className="groupon-info-row">
+          <h3>{this.props.grupon.price}</h3>
+          <div>
+            <img className={imageClass} src={img}>
+            </img> 
+          </div>
+         </div>
+        <p className="description">{title}</p>
+        
       </div>
+      </a>
       )
   } 
 }
